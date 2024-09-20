@@ -5,7 +5,7 @@
     "_generator": {
       "name": "bicep",
       "version": "0.30.3.12046",
-      "templateHash": "15736333789945858595"
+      "templateHash": "15729232458405540332"
     }
   },
   "parameters": {
@@ -52,7 +52,7 @@
     "scriptUris": {
       "type": "array",
       "defaultValue": [
-        "[format('https://raw.githubusercontent.com/w-plw/cloud-deployment/refs/heads/main/scripts/{0}', parameters('scriptName'))]"
+        "[format('https://raw.githubusercontent.com/w-plw/cloud-deployment/refs/heads/main/bicep-json-templates/scripts/{0}', parameters('scriptName'))]"
       ],
       "metadata": {
         "description": "Enter the name of the CSE script URI (recommended to leave as-is)."
