@@ -5,13 +5,12 @@
     "_generator": {
       "name": "bicep",
       "version": "0.30.3.12046",
-      "templateHash": "5645100724144581511"
+      "templateHash": "18113829250718996844"
     }
   },
   "parameters": {
     "vmCount": {
       "type": "int",
-      "defaultValue": 1,
       "metadata": {
         "description": "Choose how many VMs you would like to deploy."
       }

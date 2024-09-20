@@ -6,7 +6,8 @@
 
 // VM params and default values
 @description('Choose how many VMs you would like to deploy.')
-param vmCount int = 1
+//param vmCount int = 1
+param vmCount int
 @description('Enter a name for your VM(s). If you deploy multipe VMs, this will be the prefix.')
 param vmName string = 'vm'
 @description('Choose a size for your VM(s).')
