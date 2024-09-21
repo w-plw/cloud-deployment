@@ -34,20 +34,19 @@ resource "azurerm_storage_account" "example" {
   account_tier             = "Standard"
   account_replication_type = "GRS"
 
-  tags = {
-    environment = "staging"
-  }
 }
 
 
 resource "azurerm_storage_container" "example" {
-  name                  = "private_data"
+  name                  = "automate"
   storage_account_name  = azurerm_storage_account.example.name
   container_access_type = "private"
 }
 
-resource "azurerm_storage_container" "example" {
-  name                  = "public_data"
-  storage_account_name  = azurerm_storage_account.example.name
-  container_access_type = "public"
+resource "azurerm_storage_blob" "example" {
+  name                   = "cse.ps1"
+  storage_account_name   = azurerm_storage_account.example.name
+  storage_container_name = azurerm_storage_container.example.name
+  type                   = "Block"
+  source_uri             = "https://raw.githubusercontent.com/w-plw/cloud-deployment/refs/heads/main/bicep-json-templates/.tests/cse.ps1"
 }
