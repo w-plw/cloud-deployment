@@ -82,7 +82,7 @@ resource "azurerm_network_interface" "my_terraform_nic" {
   resource_group_name = var.rg_name
 
   ip_configuration {
-    name                          = "my_nic_configuration"
+    name                          = "${random_pet.prefix.id}-nic_configuration"
     subnet_id                     = azurerm_subnet.my_terraform_subnet.id
     private_ip_address_allocation = "Dynamic"
     public_ip_address_id          = azurerm_public_ip.my_terraform_public_ip.id
@@ -97,7 +97,7 @@ resource "azurerm_network_interface_security_group_association" "example" {
 
 # Create storage account for boot diagnostics
 resource "azurerm_storage_account" "my_storage_account" {
-  name                     = "${var.prefix}store${random_id.random_id.hex}"
+  name                     = "store${random_id.random_id.hex}"
   location                 = var.location
   resource_group_name      = var.rg_name
   account_tier             = "Standard"
@@ -109,14 +109,14 @@ resource "azurerm_storage_account" "my_storage_account" {
 resource "azurerm_windows_virtual_machine" "main" {
   name                  = "${var.prefix}-vm"
   admin_username        = "azureuser"
-  admin_password        = random_password.password.result
+  admin_password        = "Password1234"
   location              = var.location
   resource_group_name   = var.rg_name
   network_interface_ids = [azurerm_network_interface.my_terraform_nic.id]
   size                  = "Standard_B2s"
 
   os_disk {
-    name                 = "myOsDisk"
+    name                 = "${random_pet.prefix.id}-OsDisk"
     caching              = "ReadWrite"
     storage_account_type = "StandardSSD_LRS"
   }

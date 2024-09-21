@@ -1,4 +1,12 @@
 # Local .terraform directories
+**/.exported resources/*
+
+# my information file
+_info.txt
+
+
+
+# Local .terraform directories
 **/.terraform/*
 
 # .tfstate files
