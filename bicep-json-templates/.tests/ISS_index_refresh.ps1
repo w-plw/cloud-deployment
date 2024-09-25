@@ -11,7 +11,7 @@ $content = $content -replace $pattern, $replacement
 Set-Content -Path $file -Value $content
 
 # update task presence in index.html
-$srvIISwwwPath = GetPhysicalPath "Default Web Site"
+$SchedTaskName = "IIS website update task"
 if (Get-ScheduledTask $SchedTaskName) {
     $srvIISwwwTask = "present"
 }
@@ -19,7 +19,7 @@ else {
     $srvIISwwwTask = "none"
 }
 $content = Get-Content -Path $file -Raw
-$pattern = 'IIS website update task: .+'
+$pattern = 'IIS website update task.+'
 $replacement = "IIS website update task: $srvIISwwwTask"
 $content = $content -replace $pattern, $replacement
 Set-Content -Path $file -Value $content
