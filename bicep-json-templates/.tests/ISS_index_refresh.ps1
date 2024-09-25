@@ -2,7 +2,7 @@ $bootTime = Get-CimInstance -ClassName Win32_OperatingSystem -ComputerName $mach
 $upTime = New-TimeSpan -Start $bootTime
 $upTimeminutes = [int]$upTime.TotalMinutes
 
-$file = 'C:\inetpub\wwwroot\index.html'
+$file = 'C:\inetpub\wwwroot\index.htm'
 $content = Get-Content -Path $file -Raw
 $pattern = 'uptime: \d+ minutes'
 $replacement = "uptime: $upTimeminutes minutes"
