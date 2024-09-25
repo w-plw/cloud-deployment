@@ -44,7 +44,7 @@
   </Settings>
   <Actions Context="Author">
     <Exec>
-      <Command>C:\inetpub\wwwroot\ISS_index_refresh.ps1</Command>
+      <Command>C:\cse-custom-scripts\ISS_index_refresh.ps1</Command>
     </Exec>
   </Actions>
 </Task>
